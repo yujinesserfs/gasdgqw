@@ -1,10 +1,10 @@
-name: Test Telegram Env Debug
+name: Telegram Test
 
 on:
   workflow_dispatch:  # 수동 실행 전용
 
 jobs:
-  send-test-message:
+  send-message:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,9 +19,9 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run Python debug script
+      - name: Run Python script
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID_1: ${{ secrets.TELEGRAM_CHAT_ID_1 }}
           TELEGRAM_CHAT_ID_2: ${{ secrets.TELEGRAM_CHAT_ID_2 }}
-        run: python main_test_debug.py
+        run: python main.py
